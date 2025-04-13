@@ -12,7 +12,7 @@ load_model = keras.models.load_model
 # Load the trained model
 @st.cache_resource
 def load_model_cached():
-    return load_model('custom_cnn_model.keras')
+    return load_model('custom_cnn_model.keras') # add path to your cnn model and make changes accordingly
 
 model = load_model_cached()
 class_names = ['BACTERIAL', 'NORMAL', 'VIRAL']  # Update if needed
@@ -35,10 +35,10 @@ def alternative_gradcam(model, img_array, pred_index=None):
         pred_index = np.argmax(preds[0])
     
     # Create a simplified Grad-CAM based on feature maps
-    # Instead of trying to access internal layers, we'll use a simplified
+    # Instead of trying to access internal layers, using a simplified
     # approach to generate a heatmap based on the prediction gradient
     
-    # Create a basic heatmap (this is a simplified approach that won't
+    # Creating a basic heatmap (this is a simplified approach that won't
     # give the true Grad-CAM but should at least generate a visualization)
     img_tensor = tf.convert_to_tensor(img_array)
     
